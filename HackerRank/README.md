@@ -1,1 +1,1 @@
-# My HackerRank Programs
+# mai HackerEarth Programs
