@@ -1,1 +1,1 @@
-# mai HackerEarth Programs
+# my HackerEarth Programs
