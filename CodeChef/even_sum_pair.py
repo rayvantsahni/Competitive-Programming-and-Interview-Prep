@@ -1,3 +1,5 @@
+# Problem Code: EVENPSUM
+
 def even_pair_sum(x, y):
     if a & 1 and not b & 1:  # odd and even
         return a * (b // 2)
@@ -7,9 +9,6 @@ def even_pair_sum(x, y):
         return a * b // 2
     if a & 1 and b & 1:  # both odd
         return 1 + (a * b) // 2
-
-
-
 
 t = int(input())
 
