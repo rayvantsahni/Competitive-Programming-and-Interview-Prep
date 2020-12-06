@@ -1,3 +1,5 @@
+# Problem Code: VACCINE2
+
 def days_required(ages, each_day):
     if each_day == 1:
         return len(ages)
@@ -21,7 +23,6 @@ def days_required(ages, each_day):
         total_days += 1
 
     return total_days
-
 
 
 t = int(input())
