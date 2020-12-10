@@ -15,9 +15,8 @@ class Solution:
         return inorder_traversal_list
     
     def _inorderTraversal(self, currentNode, inorder_list):
-        if currentNode.left:
+        if currentNode:
             self._inorderTraversal(currentNode.left, inorder_list)
-        inorder_list.append(currentNode.val)
-        if currentNode.right:
+            inorder_list.append(currentNode.val)
             self._inorderTraversal(currentNode.right, inorder_list)
         
