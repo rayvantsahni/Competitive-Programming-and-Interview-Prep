@@ -1,4 +1,4 @@
-# Problem Code:HDIVISR
+# Problem Code: HDIVISR
 
 def highest_divisor(n):
     for i in range(10, 0, -1):
