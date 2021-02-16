@@ -1,21 +1,11 @@
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        d = {}
+        from collections import Counter
+        c = Counter(nums)
         good = 0
         
-        for index, num in enumerate(nums):
-            if d.get(num):
-                d[num].append(index)
-            else:
-                d[num] = [index]
-                
-        for num in d:
-            indices_length = len(d.get(num))
-            
-            if indices_length == 1 or indices_length == 2:
-                good += indices_length - 1
-            else:
-                good += self._sum(indices_length)
+        for num in c:
+            good += self._sum(c.get(num))
         
         return good
             
