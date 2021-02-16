@@ -19,4 +19,4 @@ class Solution:
         return "".join(s)
         
     def is_vowel(self, letter):
-        return ord(letter) in (65, 69, 73, 79, 85, 97, 101, 105, 111, 117)
+        return letter in "aeiouAEIOU"
