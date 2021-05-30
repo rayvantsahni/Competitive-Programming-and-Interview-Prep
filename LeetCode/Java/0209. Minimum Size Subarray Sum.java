@@ -9,14 +9,13 @@ class Solution {
             windowSum += nums[end];
             
             while (windowSum >= target) {
-                windowSum -= nums[start];
-                start++;
                 min = Math.min(min, end - start + 1);
+                windowSum -= nums[start++];
             }
             
             end++;
         }
         
-        return min == Integer.MAX_VALUE ? 0 : min + 1;
+        return min == Integer.MAX_VALUE ? 0 : min;
     }
 }
