@@ -1,22 +1,21 @@
 class Solution {
     public int maxPower(String s) {
-        int n = s.length();
-        int max = 1;
+        int max = 0;
         int count = 0;
-        HashSet<Character> set = new HashSet<>();
+        char atHand = 'A';
+        char current;
         
-        for (int i = 0; i < n; i++) {
-            char c = s.charAt(i);
+        for (int i = 0; i < s.length(); i++) {
+            current = s.charAt(i);
             
-            if (set.contains(c)) {
+            if (current == atHand)
                 count++;
-                max = Math.max(count, max);
-            }
             else {
-                set = new HashSet<>();
-                set.add(c);
+                atHand = current;
                 count = 1;
             }
+            
+            max = Math.max(max, count);
         }
         
         return max;
