@@ -8,26 +8,18 @@ class Node:
         self.left = None
         self.right = None
         '''
-        
+
 def is_leaf(root):
     return not root.left and not root.right
         
-def _leftLeavesSum(root, direction):
-    if not root:
-        return 0
-    if is_leaf(root):
-        if direction == "left":
-            return root.data
-        if direction == "right":
-            return 0
-    else:
-        return _leftLeavesSum(root.left, "left") + _leftLeavesSum(root.right, "right")
-        
-def leftLeavesSum(root):
+def leftLeavesSum(root, is_left=False):
     # Complete this function
     if not root:
         return 0
-    return _leftLeavesSum(root.left, "left") + _leftLeavesSum(root.right, "right")
+    if is_leaf(root) and is_left:
+        return root.data
+    return leftLeavesSum(root.left, True) + leftLeavesSum(root.right, False)
+    
 
 #{ 
 #  Driver Code Starts
