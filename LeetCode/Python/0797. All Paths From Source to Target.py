@@ -7,6 +7,7 @@ class Solution:
     def _allPathsSourceTarget(self, graph, source, current, all_paths):
         if source == len(graph) - 1:
             all_paths.append(current)
+            return 
         
         neighbors = graph[source]
         for neighbor in neighbors:
