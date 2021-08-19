@@ -28,42 +28,24 @@ class Solution
 {
     long MOD = 1000000007;
     
-    boolean isValid(int[][] matrix, int x, int y) {
-        int m = matrix.length;
-        int n = matrix[0].length;
-        
-        return x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] == 0;
-    }
-    
     long numberOfPaths(int m, int n) {
         // code here
-        int[][] matrix = new int[m][n];
-        return numberOfPaths(matrix, 0, 0, new HashMap<String, Long>());
+        long[][] matrix = new long[m+1][n+1];
+        return numberOfPaths(matrix, m, n);
     }
     
-    long numberOfPaths(int[][] matrix, int x, int y, HashMap<String, Long> dp) {
-        int m = matrix.length;
-        int n = matrix[0].length;
+    long numberOfPaths(long[][] matrix, int m, int n) {
         
-        if (x == m - 1 && y == n - 1) 
-            return 1;
+        for (int row = 1; row <= m; row++) {
+            for (int col = 1; col <= n; col++) {
+                if (row == 1 && col == 1)
+                    matrix[row][col] = 1;
+                else
+                    matrix[row][col] = (matrix[row - 1][col] + matrix[row][col - 1]) % MOD;
+            }
+        }
         
-        if (!isValid(matrix, x, y)) 
-            return 0;
-            
-        String pair = x + " " + y;
-        if (dp.containsKey(pair))
-            return dp.get(pair);
-        
-        matrix[x][y] = 1;
-        
-        long count = 0;
-        count = (count + numberOfPaths(matrix, x+1, y, dp)) % MOD;
-        count = (count + numberOfPaths(matrix, x, y+1, dp)) % MOD;
-        
-        matrix[x][y] = 0;
-        
-        dp.put(pair, count);
-        return count;
+        return matrix[m][n];
     }
+    
 }
