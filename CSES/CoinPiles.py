@@ -1,7 +1,6 @@
 from sys import stdin
 
-def input():
-    return stdin.readline()
+def input(): return stdin.readline()
 
 def coin_piles(a, b):
     return not ((a + b) % 3) and max(a, b) <= 2 * min(a, b)
